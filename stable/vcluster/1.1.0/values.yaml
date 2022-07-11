@@ -1,5 +1,6 @@
 vcluster:
-  image: rancher/k3s:v1.23.8-k3s2
+  vcluster:
+    image: rancher/k3s:v1.23.8-k3s2
   
   init:
     helm:
@@ -15,3 +16,9 @@ vcluster:
       release:
         name: argocd
         namespace: argocd
+
+  service:
+    type: LoadBalancer
+    # Configuration for LoadBalancer service type
+    externalIPs: 
+    - 10.20.31.75
