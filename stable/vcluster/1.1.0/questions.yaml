@@ -40,28 +40,3 @@ questions:
             default: true
             hidden: true
 
-  - variable: vcluster
-    label: "Automated Deployments"
-    group: "App Configuration"
-    schema:
-      additional_attrs: true
-      type: dict
-      attrs:
-        - variable: init
-          label: "Auto init charts"
-          schema:
-            type: string
-            default: |
-              helm:
-              - chart:
-                  name: argo-cd
-                  repo: https://argoproj.github.io/argo-helm
-                  version: 4.9.12
-                values: |
-                  global:
-                    image:
-                      repository: ghcr.io/talltechdude/argocd-sops
-                      tag: 1.1.5
-                release:
-                  name: argocd
-                  namespace: argocd
