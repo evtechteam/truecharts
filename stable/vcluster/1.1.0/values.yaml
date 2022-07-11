@@ -21,4 +21,4 @@ vcluster:
     type: LoadBalancer
     # Configuration for LoadBalancer service type
     externalIPs: 
-    - 10.20.31.75
+    - 10.20.31.77
