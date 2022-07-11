@@ -1,0 +1,67 @@
+groups:
+  - name: "Container Image"
+    description: "Image to be used for container"
+  - name: "Controller"
+    description: "Configure workload deployment"
+  - name: "Container Configuration"
+    description: "additional container configuration"
+  - name: "App Configuration"
+    description: "App specific config options"
+  - name: "Networking and Services"
+    description: "Configure Network and Services for container"
+  - name: "Storage and Persistence"
+    description: "Persist and share data that is separate from the container"
+  - name: "Ingress"
+    description: "Ingress Configuration"
+  - name: "Security and Permissions"
+    description: "Configure security context and permissions"
+  - name: "Resources and Devices"
+    description: "Specify resources/devices to be allocated to workload"
+  - name: "Middlewares"
+    description: "Traefik Middlewares"
+  - name: "Metrics"
+    description: "Metrics"
+  - name: "Addons"
+    description: "Addon Configuration"
+  - name: "Advanced"
+    description: "Advanced Configuration"
+questions:
+  - variable: global
+    label: "global settings"
+    group: "Controller"
+    schema:
+      type: dict
+      hidden: true
+      attrs:
+        - variable: isSCALE
+          label: "flag this is SCALE"
+          schema:
+            type: boolean
+            default: true
+            hidden: true
+
+  - variable: vcluster
+    label: "Automated Deployments"
+    group: "App Configuration"
+    schema:
+      additional_attrs: true
+      type: dict
+      attrs:
+        - variable: init
+          label: "Auto init charts"
+          schema:
+            type: string
+            default: |
+              helm:
+              - chart:
+                  name: argo-cd
+                  repo: https://argoproj.github.io/argo-helm
+                  version: 4.9.12
+                values: |
+                  global:
+                    image:
+                      repository: ghcr.io/talltechdude/argocd-sops
+                      tag: 1.1.5
+                release:
+                  name: argocd
+                  namespace: argocd
