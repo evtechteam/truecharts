@@ -15,3 +15,10 @@ Kubernetes: `>=1.16.0-0`
 | Repository | Name | Version |
 |------------|------|---------|
 | https://github.com/loft-sh/vcluster | vcluster | 0.11.0 |
+
+## vcluster Kube Config
+
+Run the following from TrueNAS Shell to export kube config
+```
+k3s kubectl get secret vc-vcluster -n ix-vcluster --template={{.data.config}} | base64 -d
+```
