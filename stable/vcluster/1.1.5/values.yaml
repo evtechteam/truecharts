@@ -2,3 +2,7 @@ vcluster:
   syncer:
     extraArgs:
     - --tls-san=10.20.31.72
+
+  sync:
+    ingresses:
+      enabled: false
