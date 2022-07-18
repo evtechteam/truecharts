@@ -6,3 +6,5 @@ vcluster:
   sync:
     ingresses:
       enabled: false
+    services:
+      enabled: false
