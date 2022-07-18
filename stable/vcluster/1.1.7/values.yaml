@@ -1,0 +1,15 @@
+vcluster:
+  syncer:
+    extraArgs:
+    - --tls-san=10.20.31.72
+
+  sync:
+    ingresses:
+      enabled: false
+    services:
+      enabled: true
+    nodes:
+      enabled: true
+      # If nodes sync is enabled, and syncAllNodes = true, the virtual cluster 
+      # will sync all nodes instead of only the ones where some pods are running. 
+      syncAllNodes: true
