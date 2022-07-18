@@ -23,4 +23,4 @@ Run the following from TrueNAS Shell to export kube config
 k3s kubectl get secret vc-vcluster -n ix-vcluster --template={{.data.config}} | base64 -d
 ```
 
-Change the URL in the kubeconfig to `https://truenas-ip:6443`
+Change the URL in the kubeconfig to `https://truenas-ip:9443`
