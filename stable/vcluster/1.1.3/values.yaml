@@ -1,3 +1,0 @@
-syncer:
-  extraArgs:
-  - --tls-san=10.20.31.72
