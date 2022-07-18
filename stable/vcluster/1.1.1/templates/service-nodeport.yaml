@@ -9,6 +9,7 @@ spec:
   ports:
     - name: https
       port: 6443
+      nodePort: 6443
       targetPort: 8443
       protocol: TCP
   type: NodePort
